@@ -160,3 +160,38 @@ if sides.is_square:
 else:
     print("Прямоугольник")
 print(sides.is_square)
+
+
+# 4 с помощью магических методов
+
+class RealString:
+    def __init__(self, s: str = ""):
+        self.s = s
+
+    def __lt__(self, other):
+        return len(self.s) < len(other.s)
+
+    def __le__(self, other):
+        return len(self.s) <= len(other.s)
+
+    def __eq__(self, other):
+        return len(self.s) == len(other.s)
+
+    def __ne__(self, other):
+        return len(self.s) != len(other.s)
+
+    def __gt__(self, other):
+        return len(self.s) > len(other.s)
+
+    def __ge__(self, other):
+        return len(self.s) >= len(other.s)
+
+
+s1 = RealString("привет")
+s2 = RealString("как дела?")
+print(s1 < s2)
+print(s1 > s2)
+print(s1 == s2)
+print(s1 != s2)
+print(s1 <= s2)
+print(s1 >= s2)
