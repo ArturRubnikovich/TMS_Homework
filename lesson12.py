@@ -9,3 +9,19 @@ class Product:
     price: float
 
 # 2
+@dataclass
+class Pizza (Product):
+    topping: list
+    spicy: str
+    diameter: int
+
+@dataclass
+class Coffee(Product):
+    cup_volume: float
+    coffee_type: str
+
+# 3
+
+
+
+
