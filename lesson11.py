@@ -1,3 +1,6 @@
+from functools import total_ordering
+
+
 # 1
 class Soda:
     def __init__(self, additive: str = ""):
@@ -161,37 +164,34 @@ else:
     print("Прямоугольник")
 print(sides.is_square)
 
-
 # 4 с помощью магических методов
 
+
+@total_ordering
 class RealString:
-    def __init__(self, s: str = ""):
-        self.s = s
-
-    def __lt__(self, other):
-        return len(self.s) < len(other.s)
-
-    def __le__(self, other):
-        return len(self.s) <= len(other.s)
+    def __init__(self, some_str: str = ""):
+        self.some_str = str(some_str)
 
     def __eq__(self, other):
-        return len(self.s) == len(other.s)
+        if not isinstance(other, RealString):
+            other = RealString(other)
+        return len(self.some_str) == len(other.some_str)
 
-    def __ne__(self, other):
-        return len(self.s) != len(other.s)
-
-    def __gt__(self, other):
-        return len(self.s) > len(other.s)
-
-    def __ge__(self, other):
-        return len(self.s) >= len(other.s)
+    def __lt__(self, other):
+        if not isinstance(other, RealString):
+            other = RealString(other)
+        return len(self.some_str) < len(other.some_str)
 
 
-s1 = RealString("привет")
-s2 = RealString("как дела?")
-print(s1 < s2)
-print(s1 > s2)
-print(s1 == s2)
-print(s1 != s2)
-print(s1 <= s2)
-print(s1 >= s2)
+str1 = RealString("привет")
+str2 = RealString("как дела?")
+str3 = "прекрасно"
+print(str1 < str2)
+print(str1 > str2)
+print(str1 == str2)
+print(str1 != str2)
+print(str1 <= str2)
+print(str1 >= str2)
+print(str1 < str3)
+print(str1 == str3)
+print(str2 != str3)
