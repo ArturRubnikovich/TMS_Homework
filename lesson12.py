@@ -25,3 +25,21 @@ class Coffee(Product):
 
 
 # 3
+class AbstractShop(ABC):
+    @abstractmethod
+    def add_product(self, key: Product):
+        pass
+
+    @abstractmethod
+    def sell_product(self, key: Product):
+        pass
+
+    @abstractmethod
+    def all_products(self) -> list[Product]:
+        pass
+
+
+class NonProductError(ValueError):
+    pass
+
+product unit
