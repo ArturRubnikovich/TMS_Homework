@@ -41,5 +41,3 @@ class AbstractShop(ABC):
 
 class NonProductError(ValueError):
     pass
-
-product unit
