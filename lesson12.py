@@ -48,9 +48,11 @@ class RealShop(AbstractShop):
         self.product_shop = []
 
     def add_product(self, product: Product):
+        self.is_valid(product)
         self.product_shop.append(product)
 
     def sell_product(self, product: Product):
+        self.is_valid(product)
         self.product_shop.remove(product)
 
     def all_products(self) -> list[Product]:
@@ -93,9 +95,11 @@ class FurnitureShop(AbstractShop):
         self.product_shop = []
 
     def add_product(self, product: Furniture):
+        self.is_valid(product)
         self.product_shop.append(product)
 
     def sell_product(self, product: Furniture):
+        self.is_valid(product)
         self.product_shop.remove(product)
 
     def all_products(self) -> list[Furniture]:
