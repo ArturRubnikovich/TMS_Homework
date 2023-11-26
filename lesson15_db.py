@@ -14,7 +14,7 @@ class Base(DeclarativeBase):
 class User(Base):
     __tablename__ = "Users"
     id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String(64), nullable=False)
+    username = Column(String(64), unique=True, nullable=False)
     password = Column(String(64), nullable=False)
     email = Column(String(50), unique=True, nullable=False)
 
